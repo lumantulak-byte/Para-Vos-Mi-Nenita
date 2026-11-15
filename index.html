@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Para vos ❤️</title>
+  <!-- Tipografías: Cormorant Garamond (títulos) + Jost (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300;1,500&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Fondo: luces suaves, partículas (pétalos, corazones, destellos) y flores en las esquinas. Todo lo crea script.js -->
+  <div class="aura aura-1"></div><div class="aura aura-2"></div>
+  <div id="particulas" aria-hidden="true"></div>
+  <div id="flores" aria-hidden="true"></div>
+
+  <!-- MENÚ DE NAVEGACIÓN -->
+  <nav class="menu vidrio" id="menu" aria-label="Secciones">
+    <a href="#inicio">Inicio</a>
+    <a href="#recuerdos">Nuestros recuerdos</a>
+    <a href="#actividades">Actividades</a>
+    <a href="#vales">Vales para vos</a>
+    <a href="#final">Un último mensaje</a>
+  </nav>
+
+  <!-- ============ INICIO ============ -->
+  <section id="inicio">
+    <header class="hero">
+      <div class="corazon-wrap" aria-hidden="true">
+        <span class="onda"></span><span class="onda retraso"></span>
+        <svg viewBox="0 0 100 100" class="corazon">
+          <defs><linearGradient id="grad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7a8b8"/><stop offset="1" stop-color="#d9566f"/></linearGradient></defs>
+          <path pathLength="1" d="M50 88C20 64 6 46 6 30 6 16 17 8 29 8c10 0 17 6 21 13 4-7 11-13 21-13 12 0 23 8 23 22 0 16-14 34-44 58z"/>
+        </svg>
+      </div>
+      <h1>Qué lindo que existas<br>en mi mundo</h1>
+      <p class="subtitulo">Armé este jardín con palabras, recuerdos y pequeños regalos para vos.</p>
+      <button class="boton" id="btn-regalo" type="button">Tengo algo para vos ❤️</button>
+    </header>
+
+    <div class="seccion" id="mensajes">
+      <h2>Cosas que quería decirte</h2>
+      <div class="rejilla" id="rejilla"></div>
+    </div>
+  </section>
+
+  <!-- ============ NUESTROS RECUERDOS ============ -->
+  <section class="seccion" id="recuerdos">
+    <h2>Nuestros recuerdos</h2>
+    <figure class="marco vidrio revelar" id="marco">
+      <!-- Foto fija del proyecto: reemplazá assets/recuerdo.jpg para cambiarla -->
+      <div class="foto"><img src="assets/recuerdo.jpg" onerror="this.onerror=null;this.src='recuerdo.jpg'" width="1599" height="1200" alt="Un recuerdo hermoso"></div>
+      <figcaption>Un recuerdo hermoso con mi persona favorita en el mundo</figcaption>
+    </figure>
+  </section>
+
+  <!-- ============ ACTIVIDADES ============ -->
+  <section class="seccion" id="actividades">
+    <h2>¿Qué te gustaría hacer conmigo?</h2>
+    <div class="rejilla chica" id="grilla-act"></div>
+    <form class="nueva" id="nueva" autocomplete="off">
+      <input class="n-ico" id="n-ico" value="🌸" maxlength="4" aria-label="Icono de la actividad">
+      <input id="n-tit" placeholder="Proponé otra actividad…" maxlength="40" required aria-label="Nueva actividad">
+      <button class="boton" type="submit">Agregar</button>
+    </form>
+    <div class="aventura vidrio revelar">
+      <h3>Nuestra próxima aventura</h3>
+      <ul id="aventura"></ul>
+    </div>
+  </section>
+
+  <!-- ============ VALES ============ -->
+  <section class="seccion" id="vales">
+    <h2>Vales para vos</h2>
+    <div class="barra-vales">
+      <p id="cuenta-vales"></p>
+      <button class="boton suave" id="reiniciar" type="button">Reiniciar vales</button>
+    </div>
+    <div class="rejilla vales" id="grilla-vales"></div>
+  </section>
+
+  <!-- ============ ÚLTIMO MENSAJE ============ -->
+  <section class="seccion" id="final">
+    <h2>Un último mensaje</h2>
+    <article class="carta vidrio revelar">
+      <p>Si hoy fue un día pesado, quiero que sepas que no tenés que poder con todo.</p>
+      <p>Está bien cansarse, está bien necesitar una pausa. Y aun en los días grises, seguís siendo alguien que ilumina sin darse cuenta: en la forma en que te reís, en cómo escuchás, en cómo hacés que lo simple se sienta importante.</p>
+      <p>Gracias por ser tan vos. Si alguna vez dudás de lo valiosa que es tu presencia, acordate de esto: hay alguien que piensa en vos con mucho cariño, todos los días.</p>
+      <p class="firma">Siempre tuyo.</p>
+    </article>
+    <h2 class="sub">Nuestro tiempo juntos ❤️</h2>
+    <div class="vidrio tiempo revelar">
+      <div><strong id="c-meses">0</strong><span>meses</span></div>
+      <div><strong id="c-dias">0</strong><span>días</span></div>
+      <div><strong id="c-horas">0</strong><span>horas</span></div>
+      <div><strong id="c-min">0</strong><span>minutos</span></div>
+      <div><strong id="c-seg">0</strong><span>segundos</span></div>
+    </div>
+    <footer class="pie"><p>Hecho con cariño para vos</p></footer>
+  </section>
+
+  <!-- Mensaje especial (aparece al tocar el botón principal) -->
+  <div class="velo" id="velo" aria-hidden="true">
+    <div class="vidrio modal" role="dialog" aria-modal="true" aria-labelledby="modal-texto">
+      <p class="modal-texto" id="modal-texto"></p>
+      <div class="modal-acciones">
+        <button class="boton suave" id="btn-otro" type="button">Descubrir otro mensaje</button>
+        <button class="boton" id="btn-seguir" type="button">Seguir leyendo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aviso breve (actividad elegida, vale canjeado, etc.) -->
+  <div class="aviso vidrio" id="aviso" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
